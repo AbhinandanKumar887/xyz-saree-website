@@ -1,0 +1,62 @@
+body::before {
+    content: ""; 
+    background: url('../static/img2\ \(2\).jpg') center center no-repeat; 
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+#abhi {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid rgb(240, 0, 80);
+    border-radius: 8px;
+    width: 42%;
+    margin-top:40px;
+    margin-left: 31%;
+    margin-bottom: 12px;
+}
+input{
+    padding: 5px;
+    margin: 5px;
+    font-family: cursive;
+    font-size: 35px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* color: darkblue; */
+    background-color: transparent;
+}
+.text{
+    color: darkblue;
+}
+form ::placeholder{
+    color: black;
+    text-align: center;
+}
+.btn{
+    border: 2px solid red;
+    padding: 3px;
+    margin: 3px;
+    font-size: medium;
+    font-family: fantasy;
+    width: 25%;
+    border-radius: 5px;
+    background-color: cadetblue;
+}
+form{
+    align-items: center;
+}
+.con {
+    margin-top: 45px;
+    font-size: 43px;
+    font-family: system-ui;
+    color: #340327;
+    text-align: center;
+}
+.btn::placeholder{
+    background-color: crimson;
+}

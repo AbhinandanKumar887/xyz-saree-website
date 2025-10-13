@@ -1,0 +1,15 @@
+extends demo.pug 
+block style 
+    style 
+        include ../static/style.css
+        include ../static/contact.css
+block content
+    .con
+      h3 fill this form to be a part of us.
+
+    form#abhi(action="/contact", method="post")
+      input.text(type="text", name="nam", placeholder="enter your name.")
+      input.text(type="text", name="locality", placeholder="enter your locality.")
+      input.text(type="text", name="ambition", placeholder="enter your choice")
+      input.text(type="text", name="mobile", placeholder="enter your mobile number.")
+      button.btn Submit

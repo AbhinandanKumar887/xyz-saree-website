@@ -1,0 +1,59 @@
+/* General Styles */
+body {
+    font-family: cursive;
+    margin: 0;
+    padding: 0;
+    background-color: #411e1e;
+    text-align: center;
+}
+
+/* Services Section */
+.services {
+    background-color: #bb7272;
+    padding: 50px 20px;
+}
+
+.services h2 {
+    font-size: 2.5em;
+    color: #330808;
+    margin-bottom: 20px;
+}
+
+/* Service Box Container */
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Individual Service Boxes */
+.service-box {
+    background: rgb(136, 216, 149);
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-box:hover {
+    transform: scale(1.05);
+}
+
+.service-box img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.service-box h3 {
+    font-size: 1.4em;
+    color: #35090f;
+    margin: 15px 0 10px;
+}
+
+.service-box p {
+    font-size: 1em;
+    color: #030101;
+}

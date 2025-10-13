@@ -1,0 +1,28 @@
+*{
+    font-family: cursive;
+    padding: 0;
+    margin: 0;
+}
+body::before{
+    content: '';
+    background-color: aqua;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height:998px;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background-size: cover;
+}
+.para1{
+    padding: 10px;
+    margin: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.para1 div{
+    color: rgb(66, 5, 23);
+    font-size: 33px;
+    font-weight: bold;
+}

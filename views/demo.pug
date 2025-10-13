@@ -1,0 +1,20 @@
+html
+  head
+    title My Site - #{title}
+    block scripts
+      script(src='../static/index.js')
+    block style 
+      style 
+        include ../static/style.css
+  body
+    nav.navbar  
+            div 
+                img(src="../static/345t.png", alt="")
+            ul 
+                li #[a(href='/') home]
+                li #[a(href='/about') about]
+                li #[a(href='/services') services ]
+                li #[a(href='/contact') contact us ]
+    block content
+    footer#footer
+        div https://www.XYZ-saareecenter.com | © all rights reserved

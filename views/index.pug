@@ -1,0 +1,34 @@
+extends demo.pug 
+block style 
+    style 
+        include ../static/home.css
+        include ../static/style.css
+block content 
+    section#content
+        div Welcome to the xyz saaree centre
+            p Wrap Yourself in Colors of Heritage
+    section#promo
+        span  
+            | Our Thoughts. 
+        .moto1 
+            div 
+                img(src="../static/saare1.jpg", alt="")
+                p Where Tradition Meets Trend.
+            div 
+                img(src="../static/saare2.webp", alt="")
+                p Saree: The Art of Subtlety.
+            div 
+                img(src="../static/saare3.webp", alt="")
+                p Drape the Difference.
+    section#moto  
+        p Our Collections
+        .container 
+            div 
+                img(src="../static/hand.webp", alt="")
+                a(href="/handloom") handloom saarees.
+            div 
+                img(src="../static/tra.jpg", alt="")
+                a(href="/traditional") traditional saarees. 
+            div 
+                img(src="../static/bri.jpg", alt="")
+                a(href="/bridal") bridal collection. 
