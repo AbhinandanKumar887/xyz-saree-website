@@ -1,0 +1,47 @@
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/cart.css
+
+block content
+  .cart-hero
+    h1 Your Cart 🛒
+    p Review your selected sarees before checkout
+
+  .cart-page
+    //- ── Item List (populated by JS from localStorage) ──────
+    .cart-left
+      .cart-header-row
+        span.ch Item
+        span.ch Price
+        span.ch Quantity
+        span.ch Subtotal
+        span.ch
+
+      #cartItems
+        //- rows injected by index.js
+
+      #cartEmpty(style="display:none")
+        .empty-state
+          p 🛒 Your cart is empty.
+          a.btn-primary(href="/") Browse Collections
+
+      .cart-actions
+        button#clearCartBtn Clear Cart
+
+    //- ── Summary Panel ──────────────────────────────────────
+    .cart-right.reveal
+      h2 Order Summary
+      .summary-line
+        span Items:
+        span#cartCount —
+      .summary-line
+        span Shipping:
+        span ₹ 99
+      .summary-line.summary-total
+        span Total:
+        span#cartTotal —
+      .summary-note Free delivery on orders above ₹ 1,000
+      a.btn-checkout(href="/checkout") Proceed to Checkout →
+      a.continue-link(href="/") ← Continue Shopping

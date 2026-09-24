@@ -1,62 +1,129 @@
-body::before {
-    content: ""; 
-    background: url('../static/img2\ \(2\).jpg') center center no-repeat; 
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    opacity: 0.7;
+/* ============ CONTACT PAGE ============ */
+.contact-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #4a0e22 100%);
+    text-align: center;
+    padding: 60px 20px;
 }
+
+.contact-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: cursive;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+}
+
+.contact-hero p {
+    font-size: 1.1rem;
+    color: #f5d0dc;
+}
+
+.contact-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    padding: 60px 30px;
+    background: #fff8f2;
+}
+
+/* ── Info panel ── */
+.contact-info {
+    background: #fff;
+    border: 2px solid #e8c97a;
+    border-radius: 16px;
+    padding: 36px 28px;
+    width: 280px;
+    box-shadow: 0 4px 18px rgba(124,28,62,0.1);
+}
+
+.contact-info h2 {
+    font-family: cursive;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e8c97a;
+    padding-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 0.97rem;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.contact-info strong { color: var(--primary); }
+
+/* ── Form panel ── */
+.contact-form-box {
+    background: #fff;
+    border: 2px solid #e8c97a;
+    border-radius: 16px;
+    padding: 36px 32px;
+    width: 400px;
+    box-shadow: 0 4px 18px rgba(124,28,62,0.1);
+}
+
+.contact-form-box h2 {
+    font-family: cursive;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e8c97a;
+    padding-bottom: 10px;
+}
+
 #abhi {
     display: flex;
     flex-direction: column;
-    border: 5px solid rgb(240, 0, 80);
+    gap: 14px;
+}
+
+#abhi input {
+    padding: 12px 16px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 2px solid #e8c97a;
     border-radius: 8px;
-    width: 42%;
-    margin-top:40px;
-    margin-left: 31%;
-    margin-bottom: 12px;
+    outline: none;
+    background: #fffbf5;
+    color: var(--text);
+    transition: border-color 0.2s;
 }
-input{
-    padding: 5px;
-    margin: 5px;
-    font-family: cursive;
-    font-size: 35px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.2);
-    /* color: darkblue; */
-    background-color: transparent;
+
+#abhi input:focus {
+    border-color: var(--primary);
+    background: #fff;
 }
-.text{
-    color: darkblue;
+
+#abhi input::placeholder { color: #b07080; }
+
+.btn {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(124,28,62,0.35);
 }
-form ::placeholder{
-    color: black;
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124,28,62,0.5);
+}
+
+.form-msg {
+    margin-top: 16px;
+    padding: 12px;
+    background: #e8fce8;
+    border: 1px solid #6cc36c;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #2a6a2a;
     text-align: center;
-}
-.btn{
-    border: 2px solid red;
-    padding: 3px;
-    margin: 3px;
-    font-size: medium;
-    font-family: fantasy;
-    width: 25%;
-    border-radius: 5px;
-    background-color: cadetblue;
-}
-form{
-    align-items: center;
-}
-.con {
-    margin-top: 45px;
-    font-size: 43px;
-    font-family: system-ui;
-    color: #340327;
-    text-align: center;
-}
-.btn::placeholder{
-    background-color: crimson;
 }

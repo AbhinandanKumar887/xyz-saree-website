@@ -1,13 +1,42 @@
-extend demo.pug 
-block style 
-    style 
-        include ../static/common.css
-        include ../static/style.css
-block content 
-    .container 
-        div 
-            img(src="../static/bri1.webp", alt="")
-        div 
-            img(src="../static/bri2.webp", alt="")
-        div 
-            img(src="../static/k4.jpg", alt="")
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/common.css
+
+block content
+  .collection-hero
+    h1 Bridal Collection
+    p Timeless elegance for your most precious moments
+
+  .gallery-section
+    .gallery-grid
+      .product-card.reveal
+        img(src="/static/bri1.webp" alt="Bridal Silk Saree")
+        .product-info
+          h3 Royal Silk Bridal Saree
+          p.price ₹ 18,500
+          button.btn-cart(data-name="Royal Silk Bridal Saree" data-price="18500") Add to Cart 🛒
+
+      .product-card.reveal
+        img(src="/static/bri2.webp" alt="Bridal Kanjeevaram")
+        .product-info
+          h3 Kanjeevaram Bridal Saree
+          p.price ₹ 22,000
+          button.btn-cart(data-name="Kanjeevaram Bridal Saree" data-price="22000") Add to Cart 🛒
+
+      .product-card.reveal
+        img(src="/static/k4.jpg" alt="Embroidered Bridal Saree")
+        .product-info
+          h3 Embroidered Bridal Saree
+          p.price ₹ 15,999
+          button.btn-cart(data-name="Embroidered Bridal Saree" data-price="15999") Add to Cart 🛒
+
+      .product-card.reveal
+        img(src="/static/bri3.webp" alt="Zari Bridal Saree")
+        .product-info
+          h3 Pure Zari Bridal Saree
+          p.price ₹ 28,000
+          button.btn-cart(data-name="Pure Zari Bridal Saree" data-price="28000") Add to Cart 🛒
+
+  .cart-toast#cartToast Item added to cart!

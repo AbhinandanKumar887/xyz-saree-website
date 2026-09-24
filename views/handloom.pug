@@ -1,13 +1,35 @@
-extend demo.pug 
-block style 
-    style 
-        include ../static/common.css
-        include ../static/style.css
-block content 
-    .container 
-        div 
-            img(src="../static/h3.webp", alt="")
-        div 
-            img(src="../static/h1.jpg", alt="")
-        div 
-            img(src="../static/h2.jpg", alt="")
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/common.css
+
+block content
+  .collection-hero
+    h1 Handloom Sarees
+    p Woven by hand, crafted with love
+
+  .gallery-section
+    .gallery-grid
+      .product-card.reveal
+        img(src="/static/h3.webp" alt="Handloom Cotton Saree")
+        .product-info
+          h3 Handloom Cotton Saree
+          p.price ₹ 3,500
+          button.btn-cart(data-name="Handloom Cotton Saree" data-price="3500") Add to Cart 🛒
+
+      .product-card.reveal
+        img(src="/static/h1.jpg" alt="Tant Handloom Saree")
+        .product-info
+          h3 Tant Handloom Saree
+          p.price ₹ 2,800
+          button.btn-cart(data-name="Tant Handloom Saree" data-price="2800") Add to Cart 🛒
+
+      .product-card.reveal
+        img(src="/static/h2.jpg" alt="Ikkat Handloom Saree")
+        .product-info
+          h3 Ikkat Handloom Saree
+          p.price ₹ 4,200
+          button.btn-cart(data-name="Ikkat Handloom Saree" data-price="4200") Add to Cart 🛒
+
+  .cart-toast#cartToast Item added to cart!

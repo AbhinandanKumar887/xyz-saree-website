@@ -1,0 +1,70 @@
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/tracking.css
+
+block content
+  .tracking-hero
+    h1 Track Your Order
+    p Stay updated — every step of the way
+
+  .tracking-wrap
+    //- ── Search Box ─────────────────────────────────────
+    .track-search.reveal
+      form#trackForm(action="/order-tracking" method="get")
+        input(type="text" name="order_id" placeholder="Enter your Order ID (e.g. XYZ-20240001)" value=orderId || "")
+        button(type="submit") Track 🔍
+
+    //- ── Tracking Result ────────────────────────────────
+    if orderData
+      .track-result.reveal
+        .track-header
+          h2 Order ##{orderData.id}
+          span.track-status(class=`status-${orderData.statusCode}`)= orderData.status
+
+        .track-meta
+          p
+            strong Item:
+            |  #{orderData.item}
+          p
+            strong Placed:
+            |  #{orderData.placedDate}
+          p
+            strong Expected Delivery:
+            |  #{orderData.deliveryDate}
+
+        //- Progress Steps
+        .track-steps
+          .step(class=orderData.step >= 1 ? 'done' : '')
+            .step-icon ✓
+            .step-label Order Placed
+          .step-line(class=orderData.step >= 2 ? 'done' : '')
+          .step(class=orderData.step >= 2 ? 'done' : '')
+            .step-icon ✓
+            .step-label Confirmed
+          .step-line(class=orderData.step >= 3 ? 'done' : '')
+          .step(class=orderData.step >= 3 ? 'active' : '')
+            .step-icon ✓
+            .step-label Shipped
+          .step-line(class=orderData.step >= 4 ? 'done' : '')
+          .step(class=orderData.step >= 4 ? 'done' : '')
+            .step-icon ✓
+            .step-label Out for Delivery
+          .step-line(class=orderData.step >= 5 ? 'done' : '')
+          .step(class=orderData.step >= 5 ? 'done' : '')
+            .step-icon ✓
+            .step-label Delivered
+
+        if phone
+          .track-order-links
+            a.btn-track-link(href=`/my-orders?phone=${phone}`) 📋 All My Orders
+            a.btn-track-link(href=`/profile?phone=${phone}`) 👤 My Profile
+
+    else if searched
+      .track-not-found.reveal
+        p ❌ No order found with ID "#{orderId}". Please check and try again.
+
+    else
+      .track-hint.reveal
+        p Enter your Order ID above to check the live status of your saree delivery.

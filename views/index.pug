@@ -1,34 +1,55 @@
-extends demo.pug 
-block style 
-    style 
-        include ../static/home.css
-        include ../static/style.css
-block content 
-    section#content
-        div Welcome to the xyz saaree centre
-            p Wrap Yourself in Colors of Heritage
-    section#promo
-        span  
-            | Our Thoughts. 
-        .moto1 
-            div 
-                img(src="../static/saare1.jpg", alt="")
-                p Where Tradition Meets Trend.
-            div 
-                img(src="../static/saare2.webp", alt="")
-                p Saree: The Art of Subtlety.
-            div 
-                img(src="../static/saare3.webp", alt="")
-                p Drape the Difference.
-    section#moto  
-        p Our Collections
-        .container 
-            div 
-                img(src="../static/hand.webp", alt="")
-                a(href="/handloom") handloom saarees.
-            div 
-                img(src="../static/tra.jpg", alt="")
-                a(href="/traditional") traditional saarees. 
-            div 
-                img(src="../static/bri.jpg", alt="")
-                a(href="/bridal") bridal collection. 
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/home.css
+
+block content
+  //- ── Hero Slider ──────────────────────────────────────
+  section#hero
+    .hero-slide.active
+    .hero-slide
+    .hero-slide
+    .hero-slide
+    .hero-overlay
+      h1 Welcome to SARASWATI Saree Centre
+      p Wrap Yourself in Colors of Heritage
+      .hero-cta
+        a.btn-primary(href="#moto") Explore Collections
+    .hero-dots
+      span.hero-dot.active(data-index="0")
+      span.hero-dot(data-index="1")
+      span.hero-dot(data-index="2")
+      span.hero-dot(data-index="3")
+
+  //- ── Tagline Strip ────────────────────────────────────
+  section#promo
+    span Our Thoughts
+    .moto1
+      .card.reveal
+        img(src="/static/saare1.jpg" alt="Heritage Saree")
+        p Where Tradition Meets Trend.
+      .card.reveal
+        img(src="/static/saare2.webp" alt="Artistic Saree")
+        p Saree: The Art of Subtlety.
+      .card.reveal
+        img(src="/static/saare3.webp" alt="Elegant Saree")
+        p Drape the Difference.
+
+  //- ── Collections ──────────────────────────────────────
+  section#moto
+    p Our Collections
+    .container
+      a.col-card.reveal(href="/handloom")
+        img(src="/static/hand.webp" alt="Handloom Sarees")
+        span Handloom Sarees
+      a.col-card.reveal(href="/traditional")
+        img(src="/static/tra.jpg" alt="Traditional Sarees")
+        span Traditional Sarees
+      a.col-card.reveal(href="/bridal")
+        img(src="/static/bri.jpg" alt="Bridal Collection")
+        span Bridal Collection
+
+  //- ── Flash Message ────────────────────────────────────
+  if message
+    .flash-msg= message

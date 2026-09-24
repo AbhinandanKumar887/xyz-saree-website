@@ -1,28 +1,36 @@
-extend demo.pug 
-block style 
-    style 
-        include ../static/service.css
-        include ../static/style.css
-block content 
-    section.services
-      h2 Our Services
-      .service-container
-        .service-box
-          img(src="../static/saare7.jpg" alt="Saree Draping")
-          h3 Custom Saree Draping
-          p Get expert draping styles tailored to your occasion and preference.
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/service.css
 
-        .service-box
-          img(src="../static/saare3.webp" alt="Bridal Consultation")
-          h3 Bridal Consultation
-          p Exclusive bridal saree styling to make your big day even more special.
+block content
+  .service-hero.reveal
+    h1 Our Services
+    p Crafting elegance for every occasion
 
-        .service-box
-          img(src="../static/asd.webp" alt="Saree Restoration")
-          h3 Saree Restoration
-          p We restore and revamp your heirloom sarees with expert craftsmanship.
+  .services
+    .service-container
+      .service-box.reveal
+        img(src="/static/saare7.jpg" alt="Saree Draping")
+        h3 Custom Saree Draping
+        p Get expert draping styles tailored to your occasion and preference.
+        a.btn-primary(href="/contact") Book Now
 
-        .service-box
-          img(src="../static/aqw.jpeg" alt="Worldwide Shipping")
-          h3 Worldwide Shipping
-          p Bringing India's finest sarees to your doorstep, anywhere in the world.
+      .service-box.reveal
+        img(src="/static/saare3.webp" alt="Bridal Consultation")
+        h3 Bridal Consultation
+        p Exclusive bridal saree styling to make your big day even more special.
+        a.btn-primary(href="/contact") Book Now
+
+      .service-box.reveal
+        img(src="/static/asd.webp" alt="Saree Restoration")
+        h3 Saree Restoration
+        p We restore and revamp your heirloom sarees with expert craftsmanship.
+        a.btn-primary(href="/contact") Book Now
+
+      .service-box.reveal
+        img(src="/static/aqw.jpeg" alt="Worldwide Shipping")
+        h3 Worldwide Shipping
+        p Bringing India's finest sarees to your doorstep, anywhere in the world.
+        a.btn-primary(href="/contact") Enquire

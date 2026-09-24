@@ -1,0 +1,54 @@
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/profile.css
+
+block content
+  .profile-hero
+    h1 My Orders
+    p All your saree orders in one place
+
+  .profile-wrap
+    //- ── Phone lookup form ──────────────────────────────────
+    .phone-lookup.reveal
+      p.lookup-hint Enter your registered mobile number to view your orders.
+      form#phoneForm(action="/my-orders" method="get")
+        .lookup-row
+          input(type="tel" name="phone" placeholder="Enter your mobile number" value=phone || "" required)
+          button(type="submit") View Orders
+
+    //- ── Results ────────────────────────────────────────────
+    if orders === null
+      //- Not searched yet — no-op, hint shown above
+    else if orders.length === 0
+      .orders-empty.reveal
+        .empty-icon 📦
+        h3 No orders found
+        p We couldn't find any orders linked to #[strong #{phone}].
+        p Double-check your mobile number or #[a(href="/checkout") place your first order].
+    else
+      .orders-list
+        each order in orders
+          .order-card.reveal
+            .order-card-head
+              .order-id-wrap
+                span.label Order ID
+                span.order-id= order.id
+              span.order-status(class=`status-${order.statusCode}`)= order.status
+            .order-card-body
+              .order-meta-row
+                .meta-item
+                  span.meta-label Placed
+                  span.meta-value= order.placedDate
+                .meta-item
+                  span.meta-label Expected Delivery
+                  span.meta-value= order.deliveryDate
+                .meta-item
+                  span.meta-label Payment
+                  span.meta-value= order.paymentMethod.toUpperCase()
+                .meta-item
+                  span.meta-label Amount
+                  span.meta-value ₹ #{Number(order.amount).toLocaleString('en-IN')}
+            .order-card-foot
+              a.btn-track(href=`/order-tracking?order_id=${order.id}`) Track this order →

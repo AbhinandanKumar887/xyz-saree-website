@@ -1,0 +1,72 @@
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/payment.css
+
+block content
+  .checkout-hero
+    h1 Secure Checkout
+    p Complete your order safely
+
+  .checkout-wrap
+    //- ── Order Summary ──────────────────────────────────
+    .order-summary.reveal
+      h2 Order Summary
+      .summary-item
+        span Saree (1 item)
+        span ₹ 12,500
+      .summary-item
+        span Shipping
+        span ₹ 99
+      .summary-item.total
+        span Total
+        span ₹ 12,599
+      .summary-note Free delivery on orders above ₹ 1,000
+
+    //- ── Payment Form ───────────────────────────────────
+    .payment-box.reveal
+      h2 Payment Method
+      form#paymentForm(action="/checkout" method="post")
+
+        //- Delivery Details
+        .section-label Delivery Details
+        input(type="text" name="full_name" placeholder="Full Name" required)
+        input(type="text" name="address" placeholder="Delivery Address" required)
+        input(type="text" name="city" placeholder="City" required)
+        input(type="text" name="pincode" placeholder="PIN Code" required)
+        input(type="tel" name="phone" placeholder="Mobile Number" required)
+
+        //- Payment Mode Selector
+        .section-label Choose Payment Method
+        .payment-tabs
+          label.pay-tab
+            input(type="radio" name="payment_method" value="card" checked)
+            span.tab-label 💳 Credit / Debit Card
+          label.pay-tab
+            input(type="radio" name="payment_method" value="upi")
+            span.tab-label 📱 UPI
+          label.pay-tab
+            input(type="radio" name="payment_method" value="cod")
+            span.tab-label 📦 Cash on Delivery
+
+        //- Card fields
+        #card-fields.pay-section
+          input(type="text" name="card_number" placeholder="Card Number (16 digits)" maxlength="19")
+          .card-row
+            input(type="text" name="card_expiry" placeholder="MM / YY" maxlength="5")
+            input(type="text" name="card_cvv" placeholder="CVV" maxlength="3")
+          input(type="text" name="card_name" placeholder="Name on Card")
+
+        //- UPI field
+        #upi-fields.pay-section(style="display:none")
+          input(type="text" name="upi_id" placeholder="Enter UPI ID (e.g. name@upi)")
+          .upi-hint Scan or enter your UPI ID to pay instantly
+
+        //- COD info
+        #cod-fields.pay-section(style="display:none")
+          .cod-info
+            p 📦 Pay when your saree arrives at your doorstep.
+            p A small handling charge of ₹ 49 applies for COD orders.
+
+        button.btn-pay(type="submit") Place Order ✓

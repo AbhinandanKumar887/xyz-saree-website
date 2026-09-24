@@ -7,7 +7,7 @@
 }
 body::before {
     content: ""; 
-    background: url('../static/img2\ \(2\).jpg') center center no-repeat; 
+    background: url('/static/img2 (2).jpg') center center no-repeat;
     background-size: cover;
     position: absolute;
     top: 0;

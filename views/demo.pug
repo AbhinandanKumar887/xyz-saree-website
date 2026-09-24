@@ -1,20 +1,47 @@
-html
+html(lang="en")
   head
-    title My Site - #{title}
-    block scripts
-      script(src='../static/index.js')
-    block style 
-      style 
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title XYZ Saree Centre — #{title}
+    block style
+      style
         include ../static/style.css
   body
-    nav.navbar  
-            div 
-                img(src="../static/345t.png", alt="")
-            ul 
-                li #[a(href='/') home]
-                li #[a(href='/about') about]
-                li #[a(href='/services') services ]
-                li #[a(href='/contact') contact us ]
+    nav.navbar
+      a.brand(href="/")
+        img(src="/static/345t.png" alt="XYZ Saree Centre Logo")
+        span.brand-name XYZ Saree Centre
+      ul
+        li: a(href="/") Home
+        li: a(href="/about") About
+        li: a(href="/services") Services
+        li: a(href="/contact") Contact
+        li: a.btn-primary(href="/order-tracking") Track Order
+        li
+          a#profileNavBtn(href="/profile")
+            span 👤
+            span#profileNavLabel  Profile
+        li
+          a.cart-nav-btn(href="/cart")
+            span.cart-icon 🛒
+            span Cart
+            span.cart-badge#cartBadge 0
+
     block content
+
     footer#footer
-        div https://www.XYZ-saareecenter.com | © all rights reserved
+      .footer-links
+        a(href="/") Home
+        a(href="/about") About
+        a(href="/services") Services
+        a(href="/bridal") Bridal
+        a(href="/traditional") Traditional
+        a(href="/handloom") Handloom
+        a(href="/contact") Contact
+        a(href="/order-tracking") Track Order
+        a(href="/profile") Profile
+        a(href="/my-orders") My Orders
+      p XYZ Saree Centre &copy; 2024 — All rights reserved | www.XYZ-saareecenter.com
+
+    block scripts
+      script(src="/static/index.js")

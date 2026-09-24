@@ -1,0 +1,57 @@
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/profile.css
+
+block content
+  .profile-hero
+    h1 My Profile
+    p Your account details at a glance
+
+  .profile-wrap
+    //- ── Phone lookup form ──────────────────────────────────
+    .phone-lookup.reveal
+      p.lookup-hint Enter your registered mobile number to view your profile.
+      form#phoneForm(action="/profile" method="get")
+        .lookup-row
+          input(type="tel" name="phone" placeholder="Enter your mobile number" value=phone || "" required)
+          button(type="submit") View Profile
+
+    //- ── Results ────────────────────────────────────────────
+    if user
+      .profile-card.reveal
+        .profile-avatar
+          span.avatar-initials= user.full_name ? user.full_name.trim().split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase() : '?'
+        .profile-details
+          h2.profile-name= user.full_name || 'Unknown'
+          .profile-info-grid
+            .info-item
+              span.info-label 📱 Mobile
+              span.info-value= user.phone
+            .info-item
+              span.info-label 🏠 Address
+              span.info-value= user.address || '—'
+            .info-item
+              span.info-label 🏙️  City
+              span.info-value= user.city || '—'
+            .info-item
+              span.info-label 📮 PIN Code
+              span.info-value= user.pincode || '—'
+            .info-item
+              span.info-label 🛒 Total Orders
+              span.info-value= orderCount
+            .info-item
+              span.info-label 📅 Member Since
+              span.info-value= new Date(user.created_at).toDateString()
+        .profile-actions
+          a.btn-primary(href=`/my-orders?phone=${encodeURIComponent(user.phone)}`) View My Orders
+          a.btn-outline(href="/checkout") Place New Order
+
+    else if phone
+      .profile-not-found.reveal
+        .empty-icon 👤
+        h3 Profile not found
+        p No profile exists for #[strong #{phone}].
+        p Your profile is created automatically when you #[a(href="/checkout") place an order].
+

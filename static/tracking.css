@@ -1,0 +1,246 @@
+/* ============ ORDER TRACKING PAGE ============ */
+.tracking-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #4a0e22 100%);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.tracking-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: cursive;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+}
+
+.tracking-hero p {
+    font-size: 1.1rem;
+    color: #f5d0dc;
+}
+
+.tracking-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 24px;
+}
+
+/* ── Search ── */
+.track-search {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#trackForm {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 560px;
+}
+
+#trackForm input {
+    flex: 1;
+    padding: 13px 16px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 2px solid #e8c97a;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: var(--text);
+    transition: border-color 0.2s;
+}
+
+#trackForm input:focus { border-color: var(--primary); }
+#trackForm input::placeholder { color: #b07080; }
+
+#trackForm button {
+    padding: 13px 24px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(124,28,62,0.35);
+    white-space: nowrap;
+}
+
+#trackForm button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(124,28,62,0.5);
+}
+
+/* ── Track Result Card ── */
+.track-result {
+    background: #fff;
+    border: 2px solid #e8c97a;
+    border-radius: 18px;
+    padding: 36px 32px;
+    box-shadow: 0 4px 20px rgba(124,28,62,0.1);
+}
+
+.track-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f3e5c5;
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.track-header h2 {
+    font-family: cursive;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.track-status {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.status-placed    { background: #e8f0fe; color: #1a5fb4; }
+.status-confirmed { background: #e8f0fe; color: #1a5fb4; }
+.status-shipped   { background: #fff3e0; color: #b45309; }
+.status-out       { background: #fef9c3; color: #854d0e; }
+.status-delivered { background: #dcfce7; color: #166534; }
+
+.track-meta {
+    margin-bottom: 30px;
+}
+
+.track-meta p {
+    font-size: 0.97rem;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.track-meta strong { color: var(--primary); }
+
+/* ── Progress Steps ── */
+.track-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #9ca3af;
+    border: 3px solid #e5e7eb;
+    transition: all 0.4s;
+}
+
+.step.done .step-icon {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.step.active .step-icon {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #fff;
+    box-shadow: 0 0 0 6px rgba(201,168,76,0.2);
+    animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 6px rgba(201,168,76,0.2); }
+    50%       { box-shadow: 0 0 0 10px rgba(201,168,76,0.05); }
+}
+
+.step-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #9ca3af;
+    text-align: center;
+    max-width: 70px;
+}
+
+.step.done .step-label,
+.step.active .step-label { color: var(--primary); }
+
+.step-line {
+    flex: 1;
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    transition: background 0.4s;
+    min-width: 20px;
+    margin-bottom: 22px;
+}
+
+.step-line.done { background: var(--primary); }
+
+/* ── Hints / Not Found ── */
+.track-hint, .track-not-found {
+    text-align: center;
+    padding: 30px;
+    background: #fff;
+    border: 2px dashed #e8c97a;
+    border-radius: 14px;
+}
+
+.track-hint p, .track-not-found p {
+    font-size: 1.05rem;
+    color: #7a4050;
+    line-height: 1.7;
+}
+
+/* ── Quick links after order result ── */
+.track-order-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 2px solid #f3e5c5;
+}
+
+.btn-track-link {
+    display: inline-block;
+    padding: 10px 22px;
+    background: #fff8f2;
+    border: 2px solid var(--gold);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-track-link:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}

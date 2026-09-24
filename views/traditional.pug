@@ -1,13 +1,35 @@
-extend demo.pug 
-block style 
-    style 
-        include ../static/common.css
-        include ../static/style.css
-block content 
-    .container 
-        div 
-            img(src="../static/k3.webp", alt="")
-        div 
-            img(src="../static/jhkl.png", alt="")
-        div 
-            img(src="../static/tra.jpg", alt="")
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/common.css
+
+block content
+  .collection-hero
+    h1 Traditional Sarees
+    p Celebrate India's rich weaving heritage
+
+  .gallery-section
+    .gallery-grid
+      .product-card.reveal
+        img(src="/static/k3.webp" alt="Banarasi Saree")
+        .product-info
+          h3 Banarasi Silk Saree
+          p.price ₹ 12,500
+          button.btn-cart(data-name="Banarasi Silk Saree" data-price="12500") Add to Cart 🛒
+
+      .product-card.reveal
+        img(src="/static/jhkl.png" alt="Chanderi Saree")
+        .product-info
+          h3 Chanderi Cotton Saree
+          p.price ₹ 5,999
+          button.btn-cart(data-name="Chanderi Cotton Saree" data-price="5999") Add to Cart 🛒
+
+      .product-card.reveal
+        img(src="/static/tra.jpg" alt="Patola Saree")
+        .product-info
+          h3 Patola Traditional Saree
+          p.price ₹ 9,800
+          button.btn-cart(data-name="Patola Traditional Saree" data-price="9800") Add to Cart 🛒
+
+  .cart-toast#cartToast Item added to cart!

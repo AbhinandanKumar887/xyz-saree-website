@@ -1,28 +1,64 @@
-extend demo.pug 
-block style 
-    style 
-        include ../static/style.css
-        include ../static/about.css
-block content 
-    .para1
-        p Welcome to XYZ Sarees, your trusted destination for exquisite sarees that blend tradition with modern elegance. At XYZ, we believe that a saree is more than just fabric—it's a symbol of grace, heritage, and timeless beauty. Our collection features handcrafted masterpieces, including luxurious Kanjeevaram, regal Banarasi, delicate Chanderi, and many more, catering to every occasion and style.
-    .para1
-        div 
-            | Our Legacy   
-        p Founded in 2k23, XYZ Sarees has been a pioneer in preserving India's rich textile heritage. Our journey began with a passion for fine craftsmanship, working closely with skilled artisans from across the country. Each saree in our collection is a testament to centuries-old weaving traditions, reimagined for the modern woman.
-    .para1 
-        div 
-            | Why Choose XYZ Sarees?
-        p i.Authentic & Handcrafted Designs – Sourced directly from master weavers.
+extends demo.pug
+block style
+  style
+    include ../static/style.css
+    include ../static/about.css
 
-        p ii.Premium Quality Fabrics – Pure silks, soft cottons, and intricate weaves.
+block content
+  .about-hero.reveal
+    h1 About XYZ Saree Centre
+    p Preserving India's textile heritage since 2023
 
-        p iii.Exclusive & Custom Drapes – Unique designs you won’t find anywhere else.
+  .about-intro.reveal
+    p Welcome to XYZ Sarees, your trusted destination for exquisite sarees that blend tradition with modern elegance. At XYZ, we believe that a saree is more than just fabric—it's a symbol of grace, heritage, and timeless beauty. Our collection features handcrafted masterpieces, including luxurious Kanjeevaram, regal Banarasi, delicate Chanderi, and many more, catering to every occasion and style.
 
-        p iv.Sustainable & Ethical Fashion – Supporting artisans and eco-friendly production.
+  section.timeline
+    h2.section-title.reveal Our Journey
+    .tl-item.reveal
+      .tl-dot
+      .tl-content
+        h3 2023 — Founded
+        p XYZ Sarees was established with a passion for fine craftsmanship, working closely with skilled artisans from across India.
+    .tl-item.reveal
+      .tl-dot
+      .tl-content
+        h3 2023 — First Collection
+        p Launched our debut collection featuring Kanjeevaram, Banarasi, and Chanderi sarees.
+    .tl-item.reveal
+      .tl-dot
+      .tl-content
+        h3 2024 — Bridal Studio
+        p Opened our exclusive Bridal Studio offering personalised consultation and styling.
+    .tl-item.reveal
+      .tl-dot
+      .tl-content
+        h3 2024 — Worldwide Shipping
+        p Expanded to international shipping, bringing Indian heritage to doorsteps globally.
 
-        p v.Worldwide Shipping – Bringing Indian heritage to your doorstep.
-    .para1 
-        div 
-            |Our Sarees – A Story in Every Weave
-        p From festive celebrations to bridal elegance, our sarees are designed to make every woman feel special. Whether you prefer timeless classics or contemporary styles, XYZ Sarees offers a range that suits every personality and occasion.
+  section.why-us
+    h2.section-title.reveal Why Choose XYZ Sarees?
+    .why-grid
+      .why-card.reveal
+        .why-icon ✦
+        h3 Authentic & Handcrafted
+        p Sourced directly from master weavers across India.
+      .why-card.reveal
+        .why-icon ✦
+        h3 Premium Quality Fabrics
+        p Pure silks, soft cottons, and intricate hand-loomed weaves.
+      .why-card.reveal
+        .why-icon ✦
+        h3 Exclusive & Custom Drapes
+        p Unique designs you won't find anywhere else.
+      .why-card.reveal
+        .why-icon ✦
+        h3 Sustainable Fashion
+        p Supporting artisans and eco-friendly production.
+      .why-card.reveal
+        .why-icon ✦
+        h3 Worldwide Shipping
+        p Bringing Indian heritage to your doorstep, anywhere.
+      .why-card.reveal
+        .why-icon ✦
+        h3 A Story in Every Weave
+        p From festive celebrations to bridal elegance — sarees for every occasion.
