@@ -1,4 +1,4 @@
-# SARASWATI Saree Centre 🪡
+# SARASWATI Saree Centre 
 
 A full-stack **Node.js / Express** web application for an Indian saree retail business. Built with **Pug** templates, **MySQL** database, and vanilla JS for client-side interactivity.
 
